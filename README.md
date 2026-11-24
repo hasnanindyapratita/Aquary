@@ -67,5 +67,5 @@ The supplied schemas, defaults, eligibility rules, onboarding definitions, stora
 - Replaced the hand-drawn placeholder penguin with a consistent illustrated mascot in thirsty, in-progress, and happy expressions across the app.
 - The companion's expression is derived from today's hydration log and target: no intake yet = thirsty, partial progress = neutral, target reached = happy. If no target has been set, the companion remains neutral.
 - Added a larger dress-up collection. Every accessory can be previewed for free; coins are charged only when the user selects Buy.
-- Refreshed the interface with a soft blue water-inspired background, translucent cards, bubbles, and consistent rounded styling.
+- Refreshed the interface with a blue water-inspired background fun backgound, translucent cards, bubbles, and consistent rounded styling.
 - App navigation and key setup/shop choices use English. Learning-center educational content remains in Indonesian.
