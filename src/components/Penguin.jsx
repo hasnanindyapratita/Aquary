@@ -1,26 +1,25 @@
 import React from 'react';
+import { Crown, Flower2, Sparkles, Glasses, Snowflake, Heart, Star, Circle, GlassWater, Ribbon, Sun, ShieldCheck } from 'lucide-react';
 
-// Every wearable is anchored above the penguin's head for a consistent fit.
+// Accessories use the same Lucide outline family as the rest of AQUARY.
 const ACCESSORY_ART = {
-  beanie: ['🧢', 'head'], flower: ['🌼', 'head'], crown: ['👑', 'head'],
-  halo: ['😇', 'head'], headphones: ['🎧', 'head'], bow: ['🎀', 'head'],
-  glasses: ['🕶️', 'head'], roundglasses: ['👓', 'head'], blush: ['🌸', 'head'],
-  scarf: ['🧣', 'head'], bowtie: ['🎀', 'head'], necklace: ['📿', 'head'],
-  hoodie: ['🧥', 'head'], backpack: ['🎒', 'head'], shell: ['🐚', 'head'],
-  star: ['⭐', 'head'], bubble: ['🫧', 'head'], heart: ['💙', 'head'],
-  float: ['🛟', 'head'], umbrella: ['☂️', 'head'],
-  blossom: ['🌸', 'head'], starclip: ['⭐', 'head'], pearlband: ['🤍', 'head'],
-  doublebow: ['🩵', 'head'], beret: ['🧢', 'head'], sailor: ['⚓', 'head'],
-  snowflake: ['❄️', 'head'], butterfly: ['🦋', 'head'], shellclip: ['🐚', 'head'],
+  beanie: Sun, flower: Flower2, crown: Crown, halo: Sparkles,
+  headphones: Circle, bow: Ribbon, glasses: Glasses, roundglasses: Glasses,
+  blush: Flower2, scarf: Ribbon, bowtie: Ribbon, necklace: Circle,
+  hoodie: ShieldCheck, backpack: ShieldCheck, shell: GlassWater,
+  star: Star, bubble: Circle, heart: Heart, float: Circle, umbrella: Sun,
+  blossom: Flower2, starclip: Star, pearlband: Circle, doublebow: Ribbon,
+  beret: Sun, sailor: ShieldCheck, snowflake: Snowflake, butterfly: Flower2,
+  shellclip: GlassWater,
 };
 
 export default function Penguin({ mood='happy', accessories=[], size='medium' }) {
   const expression = mood === 'thirsty' ? 'thirsty' : mood === 'happy' || mood === 'thriving' ? 'happy' : 'neutral';
-  const worn = accessories.map(id => ACCESSORY_ART[id]).filter(Boolean);
+  const worn = accessories.map(id => ({ id, Icon: ACCESSORY_ART[id] })).filter(item => item.Icon);
   return <div className={`penguin-wrap ${size} penguin-${expression}`} aria-label={`AQUARY penguin, ${expression} expression`}>
     <div className="penguin-art">
       <img src={`/mascot/${expression}.png`} alt={`Cute penguin looking ${expression}`} />
-      {worn.map(([art,slot],i)=><span key={`${art}-${i}`} className={`pet-accessory accessory-${slot} accessory-${i}`}>{art}</span>)}
+      {worn.map(({id,Icon},i)=><span key={`${id}-${i}`} className={`pet-accessory accessory-head accessory-${i}`}><Icon size={30} strokeWidth={2.2}/></span>)}
     </div>
   </div>;
 }
